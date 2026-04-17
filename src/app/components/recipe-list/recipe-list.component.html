@@ -1,0 +1,67 @@
+<div class="gallery-container">
+
+    <div class="search-section">
+        <div class="search-wrapper">
+            <!-- חיפוש לפי רכיבים -->
+            <input type="text" [(ngModel)]="searchIngredients"
+             placeholder="הקלידו רכיבים (למשל: ביצים, שוקולד)..."
+             (keyup.enter)="searchByIngredients()">
+            <!-- כפתור חיפוש שולח את הרכיבים ל-API עם ngModel  -->
+            <button (click)="searchByIngredients()">
+                <span>חפש</span> 🔍
+            </button>
+        </div>
+    </div>
+
+    <div class="controls-section">
+        <div class="control-group">
+            <!-- סינון לפי סוג -->
+            <label>סנן לפי סוג:</label>
+            <!-- שליחה לפונקציה onFilterChange עם הבחירה שנבחרה -->
+            <select (change)="onFilterChange($event)">
+                <option value="All">🌈 הכל</option>
+                <option value="Meat">🥩 בשרי</option>
+                <option value="Dairy">🥛 חלבי</option>
+                <option value="Parve">🥗 פרווה</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>מיין לפי:</label>
+            <!-- שליחה לפונקציה onSortChange עם הבחירה שנבחרה -->
+            <select (change)="onSortChange($event)">
+                <option value="none">❌ ללא מיון</option>
+                <option value="title">🔠 שם המתכון</option>
+                <option value="time">⏱️ זמן הכנה</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="recipes-grid">
+        <div class="recipe-card" *ngFor="let recipe of filteredRecipes">
+
+            <div class="image-wrapper">
+                <!-- הוספת תווים Unicode לדוגמה -->
+                <img [src]="'http://localhost:5000' + (recipe.image_url || recipe.image_original_url)"
+                    [alt]="recipe.title" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'" [routerLink]="['/recipes', recipe.id]" class="recipe-image">
+                <!-- הוספת תווים Unicode לדוגמה -->
+                <div class="recipe-badge" [ngClass]="recipe.type">{{ recipe.type }}</div>
+            </div>
+
+            <div class="recipe-content">
+                <h3>{{ recipe.title }}</h3>
+
+                <div class="recipe-stats">
+                    <span class="stat-item">⏱️ {{ recipe.prep_time }} דק'</span>
+                    <span class="stat-item">📋 {{ recipe.ingredients_count || 0 }} רכיבים</span>
+                </div>
+
+                <div class="card-actions">
+                    <a [routerLink]="['/recipes', recipe.id]" class="btn-view">צפה במתכון</a>
+                    <!-- כפתור מחיקה (למנהלים בלבד) -->
+                    <button *ngIf="authService.getUserRole() === 'Admin'" (click)="deleteRecipe(recipe.id)"
+                        class="btn-delete">🗑️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+/* שימוש במיכל הראשי כדי לדרוס הכל */
+.register-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfdfd; /* רקע בהיר מאוד */
+    direction: rtl;
+    font-family: 'Heebo', sans-serif;
+}
+
+.modern-card {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    /* צל רך מאוד ואסתטי */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.modern-card h2 {
+    color: #2d3436;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.modern-card .subtitle {
+    color: #a0a0a0;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* עיצוב השדות - דריסה מוחלטת */
+.form-field {
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ff6b6b; /* סלמון עדין */
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.form-field input {
+    width: 100% !important; /* דריסה חזקה */
+    height: 55px !important;
+    padding: 0 20px !important;
+    border: 2px solid #f0f0f0 !important;
+    border-radius: 16px !important;
+    background: #fcfcfc !important;
+    font-size: 1rem !important;
+    color: #2d3436 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box;
+}
+
+/* אפקט פוקוס מודרני */
+.form-field input:focus {
+    outline: none !important;
+    border-color: #4db6ac !important; /* טורקיז */
+    background: #fff !important;
+    box-shadow: 0 10px 20px rgba(77, 182, 172, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* הכפתור המנצח - בלי כחול! */
+.submit-btn-modern {
+    width: 100%;
+    height: 55px;
+    background: #4db6ac !important; /* צבע הטורקיז של האתר */
+    color: white !important;
+    border: none !important;
+    border-radius: 16px !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn-modern:hover {
+    background: #ff6b6b !important; /* משתנה לסלמון במעבר עכבר */
+    box-shadow: 0 12px 24px rgba(255, 107, 107, 0.3) !important;
+    transform: translateY(-3px);
+}
+
+.submit-btn-modern:active {
+    transform: translateY(0);
+}
+
+/* עיצוב הודעות שגיאה */
+.error-msg {
+    color: #ff7675;
+    font-size: 0.8rem;
+    margin-top: 6px;
+    margin-right: 5px;
+}
+
+.footer-text {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #636e72;
+}
+
+.footer-text a {
+    color: #4db6ac;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}

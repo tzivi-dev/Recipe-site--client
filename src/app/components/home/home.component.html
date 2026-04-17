@@ -1,0 +1,133 @@
+<div class="home-container">
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="fade-in">המתכון המושלם מחכה לך</h1>
+      <p class="fade-in-delay">גלו עולם של טעמים, צבעים וניחוחות במטבח הביתי שלכם.</p>
+      <button routerLink="/recipes" class="btn-main bounce">בואו נתחיל לבשל 🍳</button>
+    </div>
+  </header>
+
+  <section class="categories-strip">
+    <div class="category-item" [routerLink]="['/recipes']" [queryParams]="{ type: 'Meat' }">
+      <div class="cat-circle">🥩</div>
+      <span class="cat-label">חגיגה בשרית</span>
+    </div>
+
+    <div class="category-item" [routerLink]="['/recipes']" [queryParams]="{ type: 'Dairy' }">
+      <div class="cat-circle">🧀</div>
+      <span class="cat-label">מעדני חלב</span>
+    </div>
+
+    <div class="category-item" [routerLink]="['/recipes']" [queryParams]="{ type: 'Parve' }">
+      <div class="cat-circle">🧆</div>
+      <span class="cat-label">טהור וטבעי</span>
+    </div>
+
+    <div class="category-item" [routerLink]="['/recipes']">
+      <div class="cat-circle">🌍</div>
+      <span class="cat-label">גלריית הטעמים</span>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-card">
+      <div class="icon">✨</div>
+      <h3>מתכונים מקוריים</h3>
+      <p>כל המתכונים נבדקו בקפידה כדי להבטיח תוצאה מושלמת בכל פעם.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🥗</div>
+      <h3>בריא וטעים</h3>
+      <p>שילוב של רכיבים איכותיים לאורח חיים מאוזן ומלא אנרגיה.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🚀</div>
+      <h3>מהיר ופשוט</h3>
+      <p>זמני הכנה קצרים שמתאימים בדיוק ליום העמוס שלכם.</p>
+    </div>
+  </section>
+
+  <section class="trending-section scroll-reveal-up">
+    <h2>המתכונים הכי חמים השבוע 🔥</h2>
+    <div class="trending-grid">
+      <div class="trend-card">
+        <img src="assets/3.jpg" alt="Healthy">
+        <h4>סלט אנרגיה מרענן</h4>
+      </div>
+      <div class="trend-card">
+        <img src="assets/2.jpg" alt="Pizza">
+        <h4>פיצה איטלקית דקה</h4>
+      </div>
+      <div class="trend-card">
+        <img src="/assets/7.jpg" alt="Pancakes">
+        <h4>דג סלומון בטיבול משובח</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="special-feature" id="slidingBox">
+    <div class="sliding-content">
+      <h2>לא מוצאים מה לבשל?</h2>
+      <p>נשארתם עם מקרר חצי ריק? המנוע החכם שלנו ימצא לכם מתכון לפי מה שיש לכם בבית!</p>
+      <button routerLink="/recipes" class="btn-outline">נסו את חיפוש הרכיבים</button>
+    </div>
+    <div class="sliding-image">
+      <img src="/assets/1.webp" alt="Fresh Food">
+    </div>
+  </section>
+
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+
+      <div class="footer-column newsletter">
+        <h3>הצטרפו לקהילה שלנו</h3>
+        <p>קבלו מתכונים חדשים ישירות למייל בכל שבוע</p>
+        <!-- <div class="subscribe-form">
+        <input type="email" placeholder="האימייל שלך...">
+        <button class="btn-subscribe">הרשמה</button>
+      </div> -->
+        <div class="subscribe-form">
+          <input type="email" #emailInput placeholder="האימייל שלך...">
+
+          <button class="btn-subscribe" (click)="goToRegister(emailInput.value)">הרשמה</button>
+        </div>
+      </div>
+
+      <div class="footer-column links">
+        <h3>גלו עוד</h3>
+        <ul>
+          <li><a routerLink="/">דף הבית</a></li>
+          <li><a routerLink="/recipes">כל המתכונים</a></li>
+          <!-- <li><a [routerLink]="['/recipes']" [queryParams]="{ sort: 'time' }">מתכונים מהירים</a></li> -->
+          <li><a [routerLink]="['/recipes']" [queryParams]="{ fast: 'true' }">מתכונים מהירים</a></li>
+          <li><a [routerLink]="['/register']">הצטרפו לקהילה</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column links">
+        <h3>מתכונים לפי סוג</h3>
+        <ul>
+          <li><a [routerLink]="['/recipes']" [queryParams]="{ type: 'Dairy' }">חלבי</a></li>
+          <li><a [routerLink]="['/recipes']" [queryParams]="{ type: 'Meat' }">בשרי</a></li>
+          <li><a [routerLink]="['/recipes']" [queryParams]="{ type: 'Parve' }">פרווה / טבעוני</a></li>
+          <li><a [routerLink]="['/recipes']">גלריית המתכונים</a></li>
+        </ul>
+      </div>
+
+
+      <div id="social-footer" class="footer-column social">
+        <h3>עקבו אחרינו</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" class="social-icon">Facebook</a>
+          <a href="https://instagram.com" target="_blank" class="social-icon">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" class="social-icon">TikTok</a>
+        </div>
+        <p class="copyright">© 2025 RecipeSite - כל הזכויות שמורות</p>
+      </div>
+
+    </div>
+  </footer>
+
+</div>

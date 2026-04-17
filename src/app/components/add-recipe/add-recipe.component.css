@@ -1,0 +1,257 @@
+:root {
+    --gallery-turquoise: #4db6ac;
+    --gallery-pink: #ff6b6b;
+    --bg-light: #f8fafc;
+}
+
+.add-recipe-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    direction: rtl;
+    border-top: 10px solid var(--gallery-pink); /* פס ורוד עליון כמו בחיפוש */
+}
+
+/* כותרת עם הטורקיז של הגלריה */
+h2 {
+    color: #2d3436;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--gallery-turquoise);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* עיצוב שדות הטקסט */
+input, textarea, select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: var(--bg-light);
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box; /* מונע גלישה של הטקסט החוצה */
+}
+
+/* פוקוס בשדה הופך לטורקיז */
+input:focus, textarea:focus {
+    border-color: var(--gallery-turquoise);
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(77, 182, 172, 0.2);
+}
+
+/* טיפול בבעיית הגלישה של ההוראות */
+textarea {
+    resize: vertical; /* מאפשר למשתמש להגדיל גובה אבל לא רוחב */
+    line-height: 1.6;
+}
+
+/* תצוגה מקדימה של התמונה */
+/* .image-preview-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-preview-container img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 3px solid var(--gallery-turquoise);
+} */
+/* תצוגה מקדימה של התמונה - גרסה משודרגת */
+.image-preview-container {
+    margin: 25px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-preview-container img {
+    width: 100%;           /* תופס את כל רוחב הטופס */
+    max-width: 500px;      /* אבל לא יותר מ-500 פיקסלים כדי שלא ייראה ענק */
+    height: 300px;         /* גובה קבוע ששומר על הסדר */
+    object-fit: cover;     /* הקסם: התמונה נחתכת באלגנטיות במקום להימתח */
+    object-position: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border: 3px solid var(--gallery-turquoise);
+    transition: all 0.3s ease;
+}
+
+/* עיצוב שורות הרכיבים */
+.ingredient-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+    animation: fadeIn 0.4s ease-out; /* אנימציה עדינה כשמוסיפים רכיב */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* כיתוב קטן מעל התמונה */
+.preview-label {
+    font-weight: bold;
+    color: var(--gallery-turquoise);
+    font-size: 14px;
+}
+/* כפתור הפרסום בצבע ורוד-סלמון */
+.btn-submit-recipe {
+    width: 100%;
+    padding: 18px;
+    background: var(--gallery-pink);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-submit-recipe:hover {
+    background: #ee5253; /* ורוד קצת יותר כהה במעבר עכבר */
+    transform: translateY(-2px);
+}
+
+
+
+/* מניעת גלישת תמונה */
+.image-preview-wrapper {
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px dashed #4db6ac;
+    padding: 10px;
+    background: #f0fafa;
+    height: 100%;
+}
+
+.styled-preview {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover; /* חיתוך חכם */
+    border-radius: 10px;
+    display: block;
+}
+
+.preview-tag {
+    font-size: 12px;
+    color: #4db6ac;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* עיצוב שורת הרכיבים למניעת צפיפות */
+.ingredient-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* אפקט טעינה בכפתור */
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.loader {
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+.form-row .form-group { flex: 1; }
+
+
+/* שינוי צבע הטקסט המלווה (Placeholder) בכל סוגי השדות */
+input::placeholder, 
+textarea::placeholder {
+    /* color: #ff6b6b; */
+    opacity: 0.6; /* אופציונלי: הופך אותו לקצת שקוף כדי שלא ייראה כמו טקסט שהוקלד כבר */
+}
+
+label {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* עבור דפדפני Edge ו-Internet Explorer */
+/* input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #ff6b6b;
+} */
+
+/* עבור דפדפן Firefox */
+/* input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: #ff6b6b;
+    opacity: 1;
+} */
+
+
+
+/* הסתרת ה-input המקורי */
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* עיצוב הכפתור החדש */
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 25px;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+    width: 94%;
+}
+
+.custom-file-upload:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+/* עיצוב הטקסט "לא נבחר קובץ" */
+.file-name-display {
+    font-size: 14px;
+    margin-top: 5px;
+    /* הצבע נקבע דינמית ב-HTML, אבל כאן נגדיר ברירת מחדל אפורה */
+    color: #999; 
+    font-style: italic;
+}

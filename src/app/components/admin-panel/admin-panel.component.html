@@ -1,0 +1,49 @@
+
+<div class="admin-container">
+    <h1 class="page-title">בקשות ממתינות לאישור</h1>
+<!-- הערות למנהל -->
+    <div class="admin-card">
+        <!-- רשימת הבקשות ממתינות לאישור -->
+        
+        <p class="subtitle">משתמשים אלו ביקשו הרשאה להעלות מתכונים לאתר.</p>
+
+        <div *ngIf="message" class="success-alert">
+            {{ message }}
+        </div>
+        <!-- טבלת רשימת המשתמשים הממתינים לאישור -->
+         <!-- רק אם יש יותר מ-0  -->
+        <table class="users-table" *ngIf="pendingUsers.length > 0; else noRequests">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>אימייל</th>
+                    <th>תאריך בקשה</th>
+                    <th>פעולה</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- רשימת המשתמשים הממתינים לאישור -->
+                 <!-- *ngFor - לולאה על רשימת המשתמשים הממתינים -->
+                <tr *ngFor="let user of pendingUsers">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>
+                        <!-- כפתור אישור שולח את הבקשה לשרת ע"י הפונקציה approveUser -->
+                        <button class="btn-approve" (click)="approveUser(user.id)">אשר בקשה ✅</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- #norequest - אם אין בקשות ממתינות -->
+         <!-- השימוש ב-ng-template עם השם #noRequests מאפשר לאנגולר "להחזיק" קטע HTML בצד ולא לרנדר אותו אלא אם כן התנאי ב-ngIf אמר לו לעשות זאת. זה חוסך במשאבי זיכרון של הדפדפן. -->
+        <!-- הרעיון המרכזי של ng-template הוא "קוד על תנאי". זהו קטע קוד שאנגולר מכירה, אבל היא לא מציגה אותו בדף עד שמישהו פוקד עליה לעשות זאת. -->
+         <!-- זה כמו לתת "שם פרטי" לאלמנט ב-HTML כדי שנוכל להתייחס אליו ממקום אחר(אצלי זה רק else) -# -->
+         <ng-template #noRequests>
+            <div class="empty-state">
+                <p>אין בקשות ממתינות כרגע. המערכת מעודכנת!</p>
+            </div>
+        </ng-template>
+    </div>
+</div>

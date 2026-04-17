@@ -1,0 +1,203 @@
+/* הגדרות צבעים ופונט Heebo */
+.gallery-container {
+    direction: rtl;
+    padding: 30px;
+    font-family: 'Heebo', sans-serif;
+    background-color: #fdfdfd;
+}
+
+/* עיצוב שורת החיפוש */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+/* .recipe-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    font-weight: 500;
+    color: #555;
+} */
+.recipe-stats {
+    display: flex;
+    /* זה מה שדוחף אחד לימין ואחד לשמאל */
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    margin: 15px 0; /* רווח מלמעלה ומלמטה */
+    padding: 0 5px; /* מעט רווח מהקצוות של הכרטיסייה */
+}
+
+.prep-time, .ingredients-count {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    white-space: nowrap; /* מונע מהטקסט לרדת שורה אם הוא ארוך */
+}
+.search-wrapper {
+    display: flex;
+    background: white;
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 2px solid #ff6b6b; /* ורוד סלמון */
+}
+
+.search-wrapper input {
+    width: 600px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-wrapper button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-wrapper button:hover {
+    background: #ee5253;
+    transform: scale(1.02);
+}
+
+/* סרגל בקרה (סינון/מיון) */
+.controls-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.control-group label {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #444;
+}
+
+.control-group select {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 2px solid #f0f0f0;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Heebo';
+}
+
+/* כרטיסיות המתכונים */
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    position: relative;
+    border: 1px solid #f1f1f1;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.image-wrapper {
+    height: 220px;
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* תגית סוג המתכון על גבי התמונה */
+.recipe-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+.recipe-badge.Meat { background: #ff7675; }
+.recipe-badge.Dairy { background: #74b9ff; }
+.recipe-badge.Parve { background: #55efc4; }
+
+.recipe-content {
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: right;
+    /* height: 20vh; */
+}
+
+.recipe-content h3 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+}
+
+.recipe-info {
+    margin-bottom: 20px;
+    color: #636e72;
+    font-size: 14px;
+}
+
+/* כפתורים בתוך הכרטיסייה */
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-view {
+    flex: 4;
+    text-align: center;
+    padding: 12px;
+    background: #4db6ac; /* טורקיז מהגלריה */
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: #3d968e;
+}
+
+.btn-delete {
+    flex: 1;
+    background: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #ff5252;
+    color: white;
+}

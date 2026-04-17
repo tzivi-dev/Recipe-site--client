@@ -1,0 +1,64 @@
+<div class="recipe-detail-container" *ngIf="recipe">
+    <header class="recipe-header">
+        <h1 class="recipe-title">{{ recipe.title }}</h1>
+        <div class="recipe-meta">
+            <span class="recipe-category-badge" [ngClass]="recipe.type">{{ recipe.type }}</span>
+            <span class="recipe-time">⏱ זמן הכנה: {{ recipe.prep_time }} דקות</span>
+        </div>
+        <div class="author-info" style="margin-top: 10px; font-size: 0.9em; color: #666;">
+            <span>👤 פורסם על ידי: <strong>{{ recipe.author_email }}</strong></span>
+        </div>
+    </header>
+
+    <section class="image-section">
+        <h2 class="section-title">גלריית תמונות ואפקטים</h2>
+        <div class="images-grid">
+            <div class="image-item original">
+                <!-- הוספת תמונה -->
+                <img [src]="'http://localhost:5000' + recipe.image_original_url" alt="תמונה מקורית" class="recipe-img">
+                <span class="img-label">מקור</span>
+            </div>
+            <div class="image-item variation" *ngFor="let varUrl of recipe.image_variations">
+                <!-- הוספת תמונה  -->
+                <img [src]="'http://localhost:5000' + varUrl" alt="וריאציה" class="recipe-img">
+                <span class="img-label"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <section class="ingredients-section">
+            <h2 class="section-title">מה צריכים?</h2>
+            <ul class="ingredients-list">
+                <li class="ingredient-item" *ngFor="let ing of recipe.ingredients">
+                    <label class="ingredient-label">
+                        <input type="checkbox" class="hidden-checkbox">
+
+                        <div class="ingredient-content">
+                            <span class="custom-checkmark"></span>
+                            <div class="ingredient-text-wrapper">
+                                <span class="ing-amount">{{ ing.amount }} {{ ing.unit }}</span>
+                                <span class="ing-name">{{ ing.product }}</span>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </section>
+
+        <section class="instructions-section">
+            <h2 class="section-title">אופן ההכנה</h2>
+            <div class="instructions-text">
+                {{ recipe.description }}
+            </div>
+        </section>
+    </div>
+
+    <footer class="recipe-footer">
+        <button class="btn-back" routerLink="/recipes">חזרה לכל המתכונים</button>
+    </footer>
+</div>
+<!-- ngif- אם אין מתכון  -->
+<div *ngIf="!recipe" class="loading-state">
+    <p>טוען נתוני מתכון...</p>
+</div>

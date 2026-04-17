@@ -1,0 +1,45 @@
+/* עיצוב בסיסי לכפתורי כניסה/הרשמה בתפריט */
+.btn-login, .btn-register {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    transition: all 0.3s ease;
+}
+/* .btn-register {
+    background-color: #4ecdc4;
+} */
+/* המחלקה שאנגולר תוסיף אוטומטית כשהדף פעיל */
+.active-auth {
+    background-color: #4ecdc4 !important; /* הטורקיז של האתר שלך */
+    color: white !important;
+    border-color: #4ecdc4 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
+}
+/* כפתור כניסה - שקוף כברירת מחדל */
+.btn-login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* כפתור הרשמה - טורקיז כברירת מחדל (עבור דף הבית וכו') */
+.btn-register {
+    background-color: #4ecdc4;
+    color: white;
+    border: 1px solid #4ecdc4;
+}
+
+/* העיצוב שמופעל כשהקישור פעיל (עבור שני הכפתורים) */
+.active-auth {
+    background-color: #4ecdc4 !important;
+    color: white !important;
+    border: 1px solid #4ecdc4 !important;
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+}
+
+/* אופציונלי: כשהכניסה פעילה, אפשר לגרום להרשמה להפוך לשקופה כדי שלא יהיו שני טורקיזים */
+/* זה יקרה רק אם את רוצה שרק אחד יהיה צבוע בכל רגע */
+.btn-login.active-auth ~ .btn-register:not(.active-auth) {
+    background-color: transparent;
+    border: 1px solid white;
+}

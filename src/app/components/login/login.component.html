@@ -1,0 +1,23 @@
+<div class="auth-wrapper login-page">
+  <div class="auth-card">
+    <!-- טופס התחברות -->
+    <h2 class="auth-title">כניסה למערכת</h2>
+    <!-- (ngsubmit)- בעת הלחיצה על כפתור שליחת טופס שולח לפונקציה onSubmit() -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label class="form-label">אלקטרוני:</label>
+        <input type="email" formControlName="email" class="form-input" placeholder="your@email.com">
+      </div>
+
+      <div class="form-group">
+        <!-- הכסת סיסמה -->
+        <label class="form-label">סיסמה:</label>
+        <input type="password" formControlName="password" class="form-input" placeholder="******">
+      </div>
+<!-- כפתור שליחת טופס הכפתור לא מאופשר כאשר טופס לא תקין -->
+      <button type="submit" class="btn-submit" [disabled]="loginForm.invalid">כניסה למערכת</button>
+      <!-- אם יש שגיאה שולח הודעה -->
+      <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+    </form>
+  </div>
+</div>

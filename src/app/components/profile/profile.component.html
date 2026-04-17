@@ -1,0 +1,52 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <h1 class="page-title">האזור האישי שלי</h1>
+      <div class="user-avatar">
+        <!-- המייל של המשתמש -->
+        <span>{{ user?.email?.charAt(0) | uppercase }}</span>
+      </div>
+    </div>
+
+    <div class="profile-details" *ngIf="user">
+      <div class="detail-row">
+        <span class="detail-label">אימייל:</span>
+        <span class="detail-value">{{ user.email }}</span>
+      </div>
+      
+      <div class="detail-row">
+        <!-- תיאור התפקיד -->
+        <span class="detail-label">תפקיד נוכחי:</span>
+        <!-- [ngClass]="user.role" שולח לו את התפקיד -->
+        <span class="role-badge" [ngClass]="user.role">{{ user.role }}</span>
+      </div>
+
+      <div class="status-message">
+        <!-- תיאור התפקיד ע"י *ngIf-->
+        <p *ngIf="user.role === 'Admin'">אתה מנהל המערכת. יש לך גישה מלאה.</p>
+        <p *ngIf="user.role === 'Uploader'">יש לך אישור להעלות מתכונים לאתר!</p>
+        <p *ngIf="user.role === 'Reader'">כרגע באפשרותך רק לצפות במתכונים.</p>
+      </div>
+    </div>
+
+    <div class="actions-section" *ngIf="user?.role === 'Reader'">
+      <hr>
+      <!-- בקשה להעלאת מתכונים רק למשתמשים עם תפקיד Reader -->
+      <h3>רוצה לשתף מתכונים משלך?</h3>
+      <!-- <p>שלח בקשה למנהל המערכת לקבלת הרשאת העלאה.</p>
+      <button class="btn-request" (click)="requestPermission()" [disabled]="requestSent">
+        {{ requestSent ? 'הבקשה נשלחה!' : 'בקש אישור להעלות מתכונים' }}
+      </button> -->
+      <div *ngIf="user.request_date" class="pending-container">
+    <p class="pending-msg">🕒 בקשתך נשלחה בתאריך {{ user.request_date | date:'dd/MM/yyyy' }} והיא ממתינה לאישור מנהל.</p>
+    <button class="btn-request sent" disabled>בקשה בטיפול...</button>
+  </div>
+
+  <div *ngIf="!user.request_date">
+    <p>שלח בקשה למנהל המערכת לקבלת הרשאת העלאה.</p>
+    <button class="btn-request" (click)="requestPermission()">
+      בקש אישור להעלות מתכונים
+    </button>
+    </div>
+  </div>
+</div>

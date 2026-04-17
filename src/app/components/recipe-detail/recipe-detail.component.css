@@ -1,0 +1,149 @@
+/* מכולת הרכיב */
+.ingredient-item {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.ingredient-checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 15px;
+}
+
+/* הסתרת הצ'קבוקס המקורי */
+.ingredient-checkbox-container input {
+    display: none;
+}
+
+/* עיצוב הריבוע של ה-V */
+.checkmark {
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 6px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s;
+}
+
+/* כשמסמנים - הריבוע הופך לצבעוני (תואם לעיצוב הטורקיז שלך) */
+.ingredient-checkbox-container input:checked ~ .checkmark {
+    background-color: #4db6ac;
+}
+
+/* יצירת ה-V עצמו */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.ingredient-checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* אפקט מחיקת הטקסט */
+.ingredient-text {
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.ingredient-text.checked {
+    color: #aaa;
+    text-decoration: line-through;
+    transform: translateX(-5px); /* תזוזה קלה הצידה ליופי */
+}
+
+.ingredients-list {
+  padding: 0;
+  list-style: none;
+  direction: rtl; /* וודאי שהרשימה מיושרת לימין */
+}
+
+.ingredient-item {
+  border-bottom: 1px solid #f0f0f0; /* קו מפריד עדין בין רכיבים */
+  transition: background-color 0.2s;
+}
+
+
+.ingredient-label {
+  display: block;
+  padding: 12px 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hidden-checkbox {
+  display: none; /* מסתירים את הצ'קבוקס המקורי */
+}
+
+.ingredient-content {
+  display: flex;
+  align-items: flex-start; /* מיישר את ה-V לחלק העליון של הטקסט */
+  gap: 15px;
+}
+
+/* עיצוב ה-V המעוצב */
+.custom-checkmark {
+  min-width: 24px;
+  height: 24px;
+  border: 2px solid #4db6ac; /* צבע הטורקיז מהעיצוב שלך */
+  border-radius: 50%; /* עיצוב עגול נקי */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 2px; /* איזון מול השורה הראשונה של הטקסט */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* אפקט המילוי כשמסומן */
+.hidden-checkbox:checked + .ingredient-content .custom-checkmark {
+  background-color: #4db6ac;
+}
+
+.custom-checkmark::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  display: none;
+  font-weight: bold;
+}
+
+.hidden-checkbox:checked + .ingredient-content .custom-checkmark::after {
+  display: block;
+}
+
+/* עיצוב הטקסט והמחיקה */
+.ingredient-text-wrapper {
+  line-height: 1.5;
+  font-size: 1.05rem;
+  color: #333;
+  transition: all 0.3s;
+  flex: 1; /* לוקח את כל שאר הרוחב */
+}
+
+.hidden-checkbox:checked + .ingredient-content .ingredient-text-wrapper {
+  text-decoration: line-through;
+  color: #9e9e9e;
+  opacity: 0.7;
+}
+
+.ing-amount {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-left: 5px;
+}
+
+/* תיקון המחיקה עבור ה-amount */
+.hidden-checkbox:checked + .ingredient-content .ing-amount {
+  color: inherit;
+}

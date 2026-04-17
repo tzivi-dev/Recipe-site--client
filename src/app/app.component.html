@@ -1,5 +1,55 @@
-<!-- @if(show)
-{
-<app-component1></app-component1>
-} -->
-<h1>our component</h1>
+<!-- זהו "השלד" של האתר. הוא מכיל את סרגל הניווט (Navbar) שמופיע בכל הדפים. -->
+
+<nav class="main-navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a routerLink="/" class="brand-logo">RecipeSite</a>
+    </div>
+
+    <ul class="nav-list">
+      <!-- דף בית -->
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">דף
+          בית</a>
+      </li>
+      <!-- רשימת מתכונים -->
+      <li class="nav-item">
+        <a routerLink="/recipes" class="nav-link" routerLinkActive="active-link">מתכונים</a>
+      </li>
+      <!-- הוספת מתכון רק למי שמורשה להעלות מתכון -->
+      <!-- ngif- אם הפונקציה canUpload מחזירה true  -->
+      <li class="nav-item" *ngIf="canUpload">
+        <a routerLink="/add-recipe" class="nav-link btn-add-highlight" routerLinkActive="active-link">➕ הוספת מתכון</a>
+      </li>
+      <!-- אזור אישי רק למשתמשים מחוברים -->
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a routerLink="/profile" class="nav-link" routerLinkActive="active-link">אזור אישי</a>
+      </li>
+      <!-- אזור מנהל רק למנהל -->
+      <li class="nav-item" *ngIf="authService.getUserRole() === 'Admin'">
+        <a routerLink="/admin" class="nav-link nav-admin-link" routerLinkActive="active-link">איזור מנהל</a>
+      </li>
+    </ul>
+
+    <div class="user-section">
+      <!-- הפעולה של המשתמש (כניסה/הרשמה) רק אם הוא לא מחובר -->
+      <div class="guest-actions" *ngIf="!authService.isLoggedIn()">
+        <!-- <a routerLink="/login" class="btn btn-login">כניסה</a>
+        <a routerLink="/register" class="btn btn-register">הרשמה</a> -->
+        <a routerLink="/login" class="btn btn-login" routerLinkActive="active-auth">כניסה</a>
+
+        <a routerLink="/register" class="btn btn-register" routerLinkActive="active-auth">הרשמה</a>
+      </div>
+      <!-- אזור אישי רק למשתמשים מחוברים -->
+      <div class="user-logged" *ngIf="authService.isLoggedIn()">
+        <span class="user-greeting">שלום <strong class="user-name">{{ userEmail }}</strong>!</span>
+        <!-- שולח לפונקציית התנתקות -->
+        <button (click)="authService.logout()" class="btn btn-logout">התנתק</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="content-wrapper">
+  <router-outlet></router-outlet>
+</main>
