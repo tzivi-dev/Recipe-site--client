@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class RecipeService {
   // כתובת הבסיס של השרת
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = 'http://13.53.175.212:5000';
   // כתובת ספציפית למתכונים
-  private apiUrl = 'http://localhost:5000/recipes';
+  private apiUrl = 'http://13.53.175.212:5000/recipes';
 
   constructor(
     private http: HttpClient,
