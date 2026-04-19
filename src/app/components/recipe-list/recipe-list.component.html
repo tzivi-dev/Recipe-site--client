@@ -41,7 +41,7 @@
 
             <div class="image-wrapper">
                 <!-- הוספת תווים Unicode לדוגמה -->
-                <img [src]="'http://localhost:5000' + (recipe.image_url || recipe.image_original_url)"
+                <img [src]="'http://13.53.175.212:5000/' + (recipe.image_url || recipe.image_original_url)"
                     [alt]="recipe.title" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'" [routerLink]="['/recipes', recipe.id]" class="recipe-image">
                 <!-- הוספת תווים Unicode לדוגמה -->
                 <div class="recipe-badge" [ngClass]="recipe.type">{{ recipe.type }}</div>
