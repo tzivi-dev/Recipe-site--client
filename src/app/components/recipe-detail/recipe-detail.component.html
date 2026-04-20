@@ -15,12 +15,12 @@
         <div class="images-grid">
             <div class="image-item original">
                 <!-- הוספת תמונה -->
-                <img [src]="'http://13.53.175.212:5000' + recipe.image_original_url" alt="תמונה מקורית" class="recipe-img">
+                <img [src]="'http://16.192.7.177:5000' + recipe.image_original_url" alt="תמונה מקורית" class="recipe-img">
                 <span class="img-label">מקור</span>
             </div>
             <div class="image-item variation" *ngFor="let varUrl of recipe.image_variations">
                 <!-- הוספת תמונה  -->
-                <img [src]="'http://13.53.175.212:5000' + varUrl" alt="וריאציה" class="recipe-img">
+                <img [src]="'http://16.192.7.177:5000' + varUrl" alt="וריאציה" class="recipe-img">
                 <span class="img-label"></span>
             </div>
         </div>
