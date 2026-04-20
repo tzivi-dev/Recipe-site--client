@@ -1,27 +1,74 @@
-# MyApp
+# Recipe Sharing Platform — Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
+## Overview
+The frontend application for the Recipe Sharing Platform, built with Angular 17. Communicates with the Python/Flask backend via a RESTful API and provides a full user interface for browsing recipes, submitting new ones, and managing user permissions.
 
-## Development server
+## Core Capabilities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Routing & Navigation** — Angular Router with route guards protecting pages based on authentication state and user role.
+- **Authentication Flow** — Login and registration forms with JWT storage. Unauthorized users are redirected automatically.
+- **Recipe Gallery** — Filterable and sortable grid of recipe cards. Supports filtering by type (Dairy, Meat, Parve) and prep time.
+- **Recipe Detail View** — Full recipe page including the complete ingredient list, preparation instructions, and a four-image variant gallery.
+- **Add Recipe Form** — Dynamic form for approved uploaders, including ingredient management (add/remove rows) and image upload with live preview.
+- **Personal Area** — Displays user profile details. Uploaders can submit new recipes; Readers can request upload permissions.
+- **Admin Panel** — Lists users with pending permission requests. Admins can approve requests directly from the panel.
 
-## Code scaffolding
+## Technology Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Framework:** Angular 17
+- **Language:** TypeScript
+- **Styling:** CSS
+- **HTTP Client:** Angular HttpClient
+- **Forms:** Angular Reactive Forms
+
+## Component Structure
+
+```
+src/app/
+├── components/
+│   ├── add-recipe/          # Multi-ingredient recipe submission form
+│   ├── admin-panel/         # Permission request management
+│   ├── home/                # Landing page
+│   ├── login/               # Authentication forms
+│   ├── profile/             # Personal area and upload request
+│   ├── recipe-detail/       # Full single recipe view with image gallery
+│   └── recipe-list/         # Filterable recipe gallery
+├── guards/                  # Route protection (auth, role-based)
+├── models/                  # TypeScript interfaces
+└── services/                # API communication layer
+```
+
+## Setup & Installation
+
+**Prerequisites:** Node.js 18+ and Angular CLI 17.
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the development server:
+
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The application reloads automatically on file changes.
+
+> The backend server must be running on `http://localhost:5000` for API calls to resolve.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng build
+```
 
-## Running unit tests
+Build artifacts are output to the `dist/` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Useful Commands
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `ng generate component component-name` — Scaffold a new component.
+- `ng generate service service-name` — Scaffold a new service.
+- `ng test` — Run unit tests via Karma.
+- `ng help` — Angular CLI reference.
