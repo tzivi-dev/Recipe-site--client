@@ -12282,7 +12282,7 @@ function RecipeListComponent_div_32_Template(rf, ctx) {
     const recipe_r2 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext();
     \u0275\u0275advance(2);
-    \u0275\u0275property("src", "http://localhost:5000" + (recipe_r2.image_url || recipe_r2.image_original_url), \u0275\u0275sanitizeUrl)("alt", recipe_r2.title)("routerLink", \u0275\u0275pureFunction1(10, _c02, recipe_r2.id));
+    \u0275\u0275property("src", "http://13.53.175.212:5000" + (recipe_r2.image_url || recipe_r2.image_original_url), \u0275\u0275sanitizeUrl)("alt", recipe_r2.title)("routerLink", \u0275\u0275pureFunction1(10, _c02, recipe_r2.id));
     \u0275\u0275advance();
     \u0275\u0275property("ngClass", recipe_r2.type);
     \u0275\u0275advance();
@@ -12478,7 +12478,7 @@ function RecipeDetailComponent_div_0_div_22_Template(rf, ctx) {
   if (rf & 2) {
     const varUrl_r1 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275property("src", "http://localhost:5000" + varUrl_r1, \u0275\u0275sanitizeUrl);
+    \u0275\u0275property("src", "http://13.53.175.212:5000" + varUrl_r1, \u0275\u0275sanitizeUrl);
   }
 }
 function RecipeDetailComponent_div_0_li_28_Template(rf, ctx) {
@@ -12557,7 +12557,7 @@ function RecipeDetailComponent_div_0_Template(rf, ctx) {
     \u0275\u0275advance(5);
     \u0275\u0275textInterpolate(ctx_r2.recipe.author_email);
     \u0275\u0275advance(6);
-    \u0275\u0275property("src", "http://localhost:5000" + ctx_r2.recipe.image_original_url, \u0275\u0275sanitizeUrl);
+    \u0275\u0275property("src", "http://13.53.175.212:5000" + ctx_r2.recipe.image_original_url, \u0275\u0275sanitizeUrl);
     \u0275\u0275advance(3);
     \u0275\u0275property("ngForOf", ctx_r2.recipe.image_variations);
     \u0275\u0275advance(6);
