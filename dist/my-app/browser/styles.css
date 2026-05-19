@@ -1,19 +1,19 @@
 /* src/styles.css */
 @font-face {
   font-family: "Assistant";
-  src: url("./media/Assistant-VariableFont_wght-ERYGASGZ.ttf") format("truetype");
+  src: url("./media/Assistant-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Frank Ruhl Libre";
-  src: url("./media/FrankRuhlLibre-VariableFont_wght-MPJFJZHD.ttf") format("truetype");
+  src: url("./media/FrankRuhlLibre-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Amatic SC";
-  src: url("./media/AmaticSC-Regular-XQGV7TBZ.ttf") format("truetype");
+  src: url("./media/AmaticSC-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -683,3 +683,4 @@ body {
 }
 
 /* angular:styles/global:styles */
+/*# sourceMappingURL=styles.css.map */
