@@ -10,8 +10,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
   // נפריד את הכתובות כדי שלא יהיו שגיאות 404
   // כתובות ה-API של שרת ה-Flask (Python)
-  private authUrl = 'http://16.192.7.177:5000'; // כתובת הבסיס ללוגין/רישום
-  private adminUrl = 'http://16.192.7.177:5000/admin/requests'; // כתובת לניהול
+  private authUrl = 'http://16.192.7.177:5000';
+  // private authUrl = 'http://16.192.7.177:5000'; // כתובת הבסיס ללוגין/רישום
+  private adminUrl = 'http://16.192.7.177:5000/admin/requests';
+  // private adminUrl = 'http://16.192.7.177:5000/admin/requests'; // כתובת לניהול
 
 constructor(
     private http: HttpClient, // לביצוע בקשות HTTP לשרת
