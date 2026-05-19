@@ -2370,13 +2370,3 @@ function patchCommon(Zone2) {
 var Zone$1 = loadZone();
 patchCommon(Zone$1);
 patchBrowser(Zone$1);
-/*! Bundled license information:
-
-zone.js/fesm2015/zone.js:
-  (**
-   * @license Angular v<unknown>
-   * (c) 2010-2024 Google LLC. https://angular.io/
-   * License: MIT
-   *)
-*/
-//# sourceMappingURL=polyfills.js.map
