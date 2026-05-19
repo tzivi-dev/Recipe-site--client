@@ -22,12 +22,12 @@ export class RecipeService {
 
   // 1. קבלת כל המתכונים
   getRecipes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/recipes`);
   }
 
   // 2. קבלת מתכון בודד לפי ID
   getRecipeById(id: string | number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/recipes/${id}`);
   }
 
   // 3. חיפוש מתכונים לפי רכיבים (Matching Score) - מותאם בדיוק ל-app.py
@@ -56,7 +56,7 @@ addRecipe(formData: FormData): Observable<any> {
     }
   }
   
-  return this.http.post(this.apiUrl, formData, { headers });
+  return this.http.post(`${this.apiUrl}/recipes`, formData, { headers });
 }
 
   // 5. מחיקת מתכון (למנהלים בלבד)
@@ -70,6 +70,6 @@ addRecipe(formData: FormData): Observable<any> {
       }
     }
     // שימוש ב-http.delete עם הכותרות המכילות את הטוקן
-    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
+    return this.http.delete(`${this.apiUrl}/recipes/${id}`, { headers });
   }
 }
